@@ -16,18 +16,19 @@
 			<li class="active"><a href="${ctx }/trade/details"><i
 					class="icon icon-shopping-cart"></i> <span>交易管理</span></a></li>
 			<li><a href="${ctx }/user/details"><i class="icon icon-book"></i> <span>用户管理</span></a></li>
-			<li><a href="${ctx }/withdraw"><i
+			<li><a href="${ctx }/withdraw/details"><i
 					class="icon icon-ok-circle"></i> <span>提现审核</span> </a></li>
 			<li><a href="${ctx }/account/details"><i
 					class="icon icon-th-list"></i> <span>账户明细</span> </a></li>
 		</ul>
 	</div>
+	
+	<div id="content">
+		<div style="font-size: 40px;color: blue;font-weight: bold; padding-top: 200px">
+			<center>欢迎使用俺来也钱包管理系统</center>
+		</div>
+	</div>
 
-<div id="content">
-  <div id="content-header">
-    <div id="breadcrumb">钱包管理系统</div>
-  </div>
-</div>
 <%@ include file="/common/footer.jsp" %>
 </body>
 </html>

@@ -1,60 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="/common/common.jsp" %>	
+
 <!DOCTYPE html>
 <html>
 <head>
 <title>钱包管理系统</title>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
-<link rel="stylesheet" href="css/uniform.css" />
-<link rel="stylesheet" href="css/select2.css" />
-<link rel="stylesheet" href="css/matrix-style.css" />
-<link rel="stylesheet" href="css/matrix-media.css" />
-<link rel="stylesheet" href="css/dataTables.bootstrap.css" />
-<link rel="stylesheet" href="css/bootstrap-datetimepicker.css" />
-<link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.ui.custom.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.uniform.js"></script>
-<script src="js/select2.min.js"></script>
-<script src="js/jquery.dataTables.min.js"></script>
-<script src="js/matrix.js"></script>
-<script src="js/matrix.tables.js"></script>
-<script src="js/bootstrap-datetimepicker.min.js"></script>
-<script src="js/bootstrap-datetimepicker.fr.js"></script>
-<link
-	href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800'
-	rel='stylesheet' type='text/css'>
+	<script type="text/javascript">
+		$(function() {
+		    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
+		})
+	</script>   
 </head>
 <body>
 
-	<div id="header">
-		<h1>
-			<a href="dashboard.html">钱包管理系统</a>
-		</h1>
-	</div>
-
 	<!--top-Header-menu-->
-	<div id="search" class="navbar navbar-inverse">
-		<ul class="nav">
-			<li class=""><a title="" href="#"><i class="icon icon-user"></i><span
-					class="text">欢迎：&nbsp;张三</span></a></li>
-			<li class=""><a title="" href="logout.html"> <i
-					class="icon icon-share-alt"></i> <span class="text">安全退出</span></a></li>
-		</ul>
-	</div>
+	<%@ include file="/common/header.jsp" %>	
 
 	<div id="sidebar">
 		<ul style="display: block;">
-			<li><a href="trade.html"><i
+			<li><a href="${ctx }/trade/details"><i
 					class="icon icon-shopping-cart"></i> <span>交易管理</span></a></li>
-			<li><a href="user.html"><i class="icon icon-book"></i> <span>用户管理</span></a></li>
-			<li class="active"><a href="withdraw.html"><i
+			<li><a href="${ctx }/user/details"><i class="icon icon-book"></i> <span>用户管理</span></a></li>
+			<li class="active"><a href="${ctx }/withdraw/details"><i
 					class="icon icon-ok-circle"></i> <span>提现审核</span> </a></li>
-			<li><a href="accountDetails.html"><i
+			<li><a href="${ctx }/account/details"><i
 					class="icon icon-th-list"></i> <span>账户明细</span> </a></li>
 		</ul>
 	</div>
@@ -82,10 +54,11 @@
 								<option>拒绝</option>
 							</select>&nbsp;&nbsp;&nbsp; 
 							<span>申请时间：</span>&nbsp;&nbsp;&nbsp;
-							<input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime">&nbsp;--&nbsp;
-							<input size="16" type="text" value="2012-06-15 14:45" readonly class="form_datetime">&nbsp;&nbsp;
+							<input size="16" type="text" value="2012-06-15 14:45" name="start_date" class="form_datetime">&nbsp;--&nbsp;
+							<input size="16" type="text" value="2012-06-15 14:45" name="end_date" class="form_datetime">&nbsp;&nbsp;
 							<input type="submit" name="search" value="查询">&nbsp;&nbsp;&nbsp;
 							<input type="button" name="output" value="导出">
+							
 						</div>
 					</form>
 
@@ -133,50 +106,8 @@
 											</div>
 											
 										</div>
-																					<div id="bottomTool" class="row-fluid">
-												<div class="span6" style="width: 25%;; margin-right: 5px;">
-													<div class="dataTables_length"
-														id="DataTables_Table_0_length">
-														<label> 每页 <select id="pageSize"
-															onchange="research()"
-															style="width: 60px; margin-right: 2px; display: none;"
-															aria-controls="DataTables_Table_0" size="1"
-															name="DataTables_Table_0_length">
-																<option selected="selected" value="10">10</option>
-																<option value="25">25</option>
-																<option value="50">50</option>
-																<option value="100">100</option>
-														</select> 条记录
-														</label>
-													</div>
-												</div>
-												<!-- 显示第 1 至 10 项记录，共 57 项 -->
-												<div class="span6" style="width: 25%;">
-													<div
-														class="dataTables_paginate paging_bootstrap pagination">显示第
-														1 至 10 项记录，共 57 项</div>
-												</div>
-												<!-- 第2页 -->
-												<div class="span6" style="width: 30%;">
-													<div
-														class="dataTables_paginate paging_bootstrap pagination">
-														<ul id="previousNext">
-															<li onclick="previous()" class="prev disabled"><a
-																id="previousPage" href="#">上一页</a></li>
-															<div id="page" style="float: left;">
-																<select id="pageNum" onchange="search()"
-																	style="width: 50px; margin-right: 1px; display: none;"
-																	aria-controls="DataTables_Table_0" size="1"
-																	name="DataTables_Table_0_length">
-																	<option selected="selected" value="1">1</option>
-																</select>
-															</div>
-															<li class="next" onclick="next()"><a id="nextPage"
-																href="#">下一页</a></li>
-														</ul>
-													</div>
-												</div>
-									</div>
+				
+			<%@ include file="/common/paging.jsp" %>
 								</div>
 							</div>
 						</div>

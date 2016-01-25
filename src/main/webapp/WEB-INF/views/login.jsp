@@ -11,7 +11,19 @@
         <link rel="stylesheet" href="${ctx}/css/matrix-login.css" />
         <script src="${ctx}/js/jquery.min.js"></script>  
         <script src="${ctx}/js/matrix.login.js"></script> 
-
+        
+        <script type="text/javascript">
+			$(function() {
+				$("#kaptchaImage").click(function() {
+					$(this).attr("src","Kaptcha.jpg?time="+new Date());
+				});
+				
+				$("#subBtn").click(function() {
+					$("#loginform").submit();
+				});
+			});
+						
+        </script>
 </head>
     <body>
         <div id="loginbox">            
@@ -22,15 +34,15 @@
                     <div class="controls">
                         <div class="main_input_box">
                         	<span style="font-size:20px">用户名:</span>
-                            <span><i class="icon-user"></i></span><input type="text" />
+                            <input type="text" name="username" style="width: 250px"/>
                         </div>
                     </div>
                 </div>
                 <div class="control-group">
                     <div class="controls">
                         <div class="main_input_box">
-                        	<span style="font-size:20px">密&nbsp;码:</span>
-                            <span><i class="icon-lock"></i></span><input type="password"/>
+                        	<span style="font-size:20px">密&nbsp;&nbsp;&nbsp;码:</span>
+                            <input type="password" name="password" style="width: 250px"/>
                         </div>
                     </div>
                 </div>
@@ -38,9 +50,10 @@
                     <div class="controls">
                         <div class="main_input_box">
                         	<span style="font-size:20px">验证码:</span>
-                            <span><i class="icon-code"></i></span><input type="text"/>
+                            <input type="text" name="verifyCode" style="width: 120px"/> 
+                            <img src="Kaptcha.jpg" id="kaptchaImage"  style="margin-bottom: -3px"/>
                             <br /> <br />
-                            <span class="pull-center"><a type="submit" href="${ctx }/login"  class="btn btn-success" />登&nbsp;录</a></span>
+                            <span class="pull-center"><button type="button" id="subBtn" class="btn btn-success" />登&nbsp;录</button></span>
                         </div>
                     </div>
                 </div>
